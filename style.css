@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
+    scroll-behavior: smooth;
 }
 
 .chatbot-toggler {
@@ -47,6 +48,7 @@
     right: 40px;
     bottom: 100px;
     width: 420px;
+    height: 570px;
     transform: scale(0.5);
     opacity: 0;
     overflow: hidden;
@@ -89,9 +91,9 @@
 }
 
 .chatbot .chatbox {
-    height: 510px;
+    height: 400px;
     overflow-y: auto;
-    padding: 30px 20px 70px;
+    padding: 10px 20px 0px;
 }
 
 .chatbox .chat {
@@ -128,6 +130,7 @@
     color: #000;
     border-radius: 10px 10px 10px 0;
     background: #f2f2f2;
+    overflow-wrap: break-word;
 }
 
 .chatbot .chat-input {
@@ -136,7 +139,6 @@
     display: flex;
     gap: 5px;
     width: 100%;
-    background: #fff;
     padding: 5px 20px;
     border-top: 1px solid #ccc;
 }
@@ -174,7 +176,51 @@
     padding: 10px;
     max-width: 100%;
     gap: 8px;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
+
+.questions-list::-webkit-scrollbar {
+    display: none;
+}
+
+.query-list {
+    display: none;
+    position: absolute;
+    bottom: 11%;
+    z-index: 7;
+    transition: all 1.1s ease-in-out;
+    color: #000;
+    width: 100%;
+    max-height: 50%;
+    height: fit-content;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.query-list h2 {
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: red;
+}
+
+.query-list li {
+    transition: all 0.2s ease-in-out;
+    background-color: #f2f2f2;
+    padding: 14px;
+    cursor: pointer;
+}
+
+.query-list li:hover {
+    color: #f2f2f2;
+    background-color: #724ae8;
+}
+
 
 .questions-list li {
     list-style-type: none;
@@ -187,8 +233,150 @@
 }
 
 .questions-list li:hover {
-    scale: 1.10;
+    background: #724ae8;
+    color: #f2f2f2;
     transition: all 0.2s ease-in-out;
+}
+
+.darken {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    cursor: pointer;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    z-index: 8;
+    display: none;
+}
+
+.close-info {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    font-weight: 100;
+    cursor: pointer;
+    bottom: 6%;
+    z-index: 7;
+    color: #f2f2f2;
+    display: none;
+}
+
+.middle-box {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10%;
+    padding: 20px;
+    width: 70%;
+    height: 70%;
+    background: #f2f2f2;
+    z-index: 9;
+    display: none;
+}
+
+.middle-box div {
+    margin-top: 10px;
+    width: 100%;
+    height: max-content;
+    overflow-y: scroll;
+}
+
+.complete-q-list li {
+    list-style-type: none;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.complete-q-list li:hover {
+    color: #724ae8;
+}
+
+.arrow-right,
+.arrow-left,
+.more,
+.arrow-bottom,
+.arrow-top {
+    position: absolute;
+    cursor: pointer;
+    z-index: 7;
+    bottom: 12.75%;
+    width: 30px;
+    height: 30px;
+    opacity: 90%;
+    background: #724ae8;
+    color: #fff;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0px 0px 11px 3px rgba(0, 0, 0, 0.40);
+    -webkit-box-shadow: 0px 0px 11px 3px rgba(0, 0, 0, 0.40);
+    -moz-box-shadow: 0px 0px 11px 3px rgba(0, 0, 0, 0.40);
+    transition: all 0.2s ease-in-out;
+}
+
+.arrow-right,
+.more {
+    right: 2%;
+}
+
+.more {
+    bottom: 20%;
+}
+
+.arrow-left {
+    left: 2%;
+}
+
+.arrow-bottom {
+    left: 45%;
+    bottom: 7%;
+    animation: movedown 1.1s infinite;
+}
+
+.arrow-top {
+    left: 45%;
+    top: 7%;
+    animation: moveup 1.1s infinite;
+}
+
+.arrow-right:hover,
+.arrow-left:hover,
+.more:hover,
+.arrow-bottom:hover {
+    scale: 1.1;
+}
+
+@keyframes movedown {
+    0% {
+        bottom: 7%;
+    }
+
+    50% {
+        bottom: 5%;
+    }
+
+    100% {
+        bottom: 7%;
+    }
+}
+
+@keyframes moveup {
+    0% {
+        top: 7%
+    }
+
+    50% {
+        top: 5%
+    }
+
+    100% {
+        top: 7%
+    }
 }
 
 @media(max-width: 490px) {
@@ -201,7 +389,16 @@
     }
 
     .chatbot .chatbox {
-        height: 90%;
+        height: 77.5%;
+    }
+
+    .arrow-right,
+    .arrow-left {
+        bottom: 9.75%;
+    }
+
+    .more {
+        bottom: 16%;
     }
 
     .chatbot header span {

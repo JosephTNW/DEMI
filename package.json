@@ -1,0 +1,12 @@
+{
+  "name": "chatbot_acad",
+  "version": "1.0.0",
+  "description": "chatbot for academic",
+  "main": "script.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "type": "module",
+  "author": "Joseph",
+  "license": "ISC"
+}

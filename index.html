@@ -7,7 +7,7 @@
     <title>Chatbot Acad</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <script src="script.js" defer></script>
+    <script src="script.js" defer type="module"></script>
 </head>
 
 <body>
@@ -16,22 +16,44 @@
         <span class="material-symbols-outlined">close</span>
     </button>
     <div class="chatbot">
+        <div class="middle-box">
+            <h2>Questions List</h2>
+            <div class="scroll-box-q-list">
+                <ul class="complete-q-list">
+                    
+                </ul>
+
+                <button class="material-symbols-outlined arrow-bottom">expand_more</button>
+                <button class="material-symbols-outlined arrow-top">expand_less</button>
+            </div>
+        </div>
+
+        <div class="darken"></div>
+        <h3 class="close-info">Click here to close the window</h3>
+
         <header>
-            <h2>Chatbot</h2>
+            <h2>Presuniv Chatbot</h2>
             <span class="material-symbols-outlined close-btn">close</span>
         </header>
         <ul class="chatbox">
             <li class="chat incoming">
                 <span class="material-symbols-outlined">smart_toy</span>
-                <p>Hi there! This is DEMI 2.0<br> How can I help you today?</p>
+                <p>Hi there! This is Presuniv Chatbot <br>How can I help you today?</p>
             </li>
         </ul>
+
+        <button class="material-symbols-outlined more">more_horiz</button>
+
+        <button class="material-symbols-outlined arrow-right">arrow_right</button>
+
+        <button class="material-symbols-outlined arrow-left">arrow_left</button>
+
         <ul class="questions-list">
         </ul>
 
+        <ul class="query-list"></ul>
         <div class="chat-input">
-            <textarea placeholder="Enter a message..." required></textarea>
-            <span id="send-btn" class="material-symbols-outlined">send</span>
+            <textarea placeholder="Search for questions or topics here..." required></textarea>
         </div>
     </div>
 </body>
