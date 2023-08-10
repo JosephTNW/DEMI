@@ -16,7 +16,6 @@ rec.forEach((element) => {
   qna.push(bucketQna[element])
 })
 
-
 const chatInput = document.querySelector(".chat-input textarea");
 const chatBox = document.querySelector(".chatbox");
 const chatToggler = document.querySelector(".chatbot-toggler");
@@ -29,12 +28,12 @@ const closeInfo = document.querySelector(".close-info");
 const arrowRightBtn = document.querySelector(".arrow-right");
 const arrowLeftBtn = document.querySelector(".arrow-left");
 const moreBtn = document.querySelector(".more");
-const scrollBoxQList = document.querySelector(".scroll-box-q-list");
-const arrowDownBtn = document.querySelector(".arrow-bottom");
-const arrowTopBtn = document.querySelector(".arrow-top");
 const queryList = document.querySelector(".query-list");
+const chatbotBody = document.querySelector(".chatbot-body");
+const switchMode = document.querySelector("header svg");
+const presBot = document.querySelector(".presbot");
+const demiAi = document.querySelector(".demi-ai");
 
-let userMessage;
 const inputInitHeight = chatInput.scrollHeight;
 
 const createLi = (parent, message, index) => {
@@ -80,22 +79,6 @@ const createLi = (parent, message, index) => {
   return li;
 };
 
-const handleChat = () => {
-  userMessage = chatInput.value.trim();
-  if (!userMessage) return;
-
-  //Append user message to chatbox
-  chatBox.appendChild(createChatLi(userMessage, "outgoing"));
-  chatBox.scrollTo(0, chatBox.scrollHeight);
-
-  //Display thinking...
-  setTimeout(() => {
-    chatBox.appendChild(createChatLi("Thinking...", "incoming"));
-  }, 600);
-
-  chatInput.value = "";
-};
-
 const checkScroll = () => {
   const remainingScroll = questionList.scrollWidth - questionList.scrollLeft;
 
@@ -120,12 +103,13 @@ chatInput.addEventListener("input", () => {
 
 //Chat toggler logic
 chatToggler.addEventListener("click", () => {
-  document.body.classList.toggle("show-chatbot");
+  chatbotBody.classList.toggle("show-chatbot");
+  chatToggler.style.setProperty('--display', 'none')
 });
 
 //Chat close button logic
 chatBotCloseBtn.addEventListener("click", () =>
-  document.body.classList.remove("show-chatbot")
+  chatbotBody.classList.remove("show-chatbot")
 );
 
 //Arrow right logic
@@ -158,24 +142,6 @@ moreBtn.addEventListener("click", () => {
   });
 });
 
-arrowDownBtn.addEventListener("click", () => {
-  scrollBoxQList.scrollTop += 400;
-});
-
-scrollBoxQList.addEventListener("scroll", () => {
-  if (scrollBoxQList.scrollTop < 1) {
-    setDisplay(arrowDownBtn, "block");
-  } else {
-    setDisplay(arrowDownBtn, "none");
-  }
-
-  if (scrollBoxQList.scrollTop > 1294) {
-    setDisplay(arrowTopBtn, "block");
-  } else {
-    setDisplay(arrowTopBtn, "none");
-  }
-});
-
 chatInput.addEventListener("input", () => {
   queryList.innerHTML = "";
   let matches = searchForQs(chatInput.value, bucketQ);
@@ -190,7 +156,6 @@ chatInput.addEventListener("input", () => {
     queryList.innerHTML = "";
   }
   if (matches.length != 0) {
-    const forbiddenChar = `\\`;
     matches.forEach((match) => {
       queryList.appendChild(createLi(queryList, match, bucketQ.indexOf(match)));
     });
@@ -207,5 +172,9 @@ document.onreadystatechange = () => {
     });
   }
   arrowLeftBtn.style.display = "none";
-  setDisplay(arrowTopBtn, "none");
 };
+
+switchMode.addEventListener("click", () => {
+  presBot.classList.toggle('display-none');
+  demiAi.classList.toggle('display-none');
+})

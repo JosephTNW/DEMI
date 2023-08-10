@@ -11,49 +11,53 @@
 </head>
 
 <body>
-    <button class="chatbot-toggler">
-        <span class="material-symbols-outlined">mode_comment</span>
-        <span class="material-symbols-outlined">close</span>
-    </button>
-    <div class="chatbot">
-        <div class="middle-box">
-            <h2>Questions List</h2>
-            <div class="scroll-box-q-list">
-                <ul class="complete-q-list">
-                    
-                </ul>
+    <div class="chatbot-body">
+        <button class="chatbot-toggler" data-tooltip="Check this out!">
+            <span class="material-symbols-outlined">mode_comment</span>
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="chatbot presbot">
+            <div class="middle-box">
+                <h2>Questions List</h2>
+                <div class="scroll-box-q-list">
+                    <ul class="complete-q-list">
 
-                <button class="material-symbols-outlined arrow-bottom">expand_more</button>
-                <button class="material-symbols-outlined arrow-top">expand_less</button>
+                    </ul>
+
+                </div>
             </div>
-        </div>
 
-        <div class="darken"></div>
-        <h3 class="close-info">Click here to close the window</h3>
+            <div class="darken"></div>
+            <h3 class="close-info">Click here to close the window</h3>
 
-        <header>
-            <h2>Presuniv Chatbot</h2>
-            <span class="material-symbols-outlined close-btn">close</span>
-        </header>
-        <ul class="chatbox">
-            <li class="chat incoming">
-                <span class="material-symbols-outlined">smart_toy</span>
-                <p>Hi there! This is Presuniv Chatbot <br>How can I help you today?</p>
-            </li>
-        </ul>
+            <header>
+                <h2>Presuniv Chatbot</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                    <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                    <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                  </svg>
+                <span class="material-symbols-outlined close-btn">close</span>
+            </header>
+            <ul class="chatbox">
+                <li class="chat incoming">
+                    <span class="material-symbols-outlined">smart_toy</span>
+                    <p>Hi there! This is Presuniv Chatbot <br>How can I help you today?</p>
+                </li>
+            </ul>
 
-        <button class="material-symbols-outlined more">more_horiz</button>
+            <button class="material-symbols-outlined more">more_horiz</button>
 
-        <button class="material-symbols-outlined arrow-right">arrow_right</button>
+            <button class="material-symbols-outlined arrow-right">arrow_right</button>
 
-        <button class="material-symbols-outlined arrow-left">arrow_left</button>
+            <button class="material-symbols-outlined arrow-left">arrow_left</button>
 
-        <ul class="questions-list">
-        </ul>
+            <ul class="questions-list">
+            </ul>
 
-        <ul class="query-list"></ul>
-        <div class="chat-input">
-            <textarea placeholder="Search for questions or topics here..." required></textarea>
+            <ul class="query-list"></ul>
+            <div class="chat-input">
+                <textarea placeholder="Search for questions or topics here..." required></textarea>
+            </div>
         </div>
     </div>
 </body>
